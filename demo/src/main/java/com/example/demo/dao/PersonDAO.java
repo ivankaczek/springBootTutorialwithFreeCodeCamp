@@ -1,5 +1,7 @@
 package com.example.demo.dao;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.swing.text.DefaultEditorKit.InsertBreakAction;
@@ -14,5 +16,14 @@ public interface PersonDAO {
 		UUID id = UUID.randomUUID();
 		return insertPerson(id, person);
 	}
+	
+	List<Person> selectAllPeople();
+	
+	int deletePersonById(UUID id);
+	
+	int updatePersonById(UUID id, Person person);
+	
+	Optional<Person> selectPersonById(UUID id);
+	
 	
 }

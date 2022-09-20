@@ -1,5 +1,9 @@
 package com.example.demo.service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -22,6 +26,21 @@ public class PersonService {
 		return personDAO.insertPerson(person);
 	}
 	
+	public List<Person> getAllPeople(){
+		return personDAO.selectAllPeople();
+	}
+	
+	public Optional<Person> getPersonById(UUID id){
+		return personDAO.selectPersonById(id);
+	}
+	
+	public int deletePerson(UUID id) {
+		return personDAO.deletePersonById(id);
+	}
+	
+	public int updatePerson(UUID id, Person newPerson) {
+		return personDAO.updatePersonById(id, newPerson);
+	}
 	
 	
 }
